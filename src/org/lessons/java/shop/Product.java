@@ -2,7 +2,7 @@ package org.lessons.java.shop;
 
 
 public class Product {
-  private int codice;
+  private final int codice;
   private String nome;
   private String descrizione;
   private double prezzo;
@@ -16,8 +16,8 @@ public class Product {
     this.iva = iva;
   }
   
-  public int getCode() {
-    return codice;
+  public String getCode() {
+    return String.format("%08d", codice);
     
   }
   public String getNome() {
@@ -55,7 +55,7 @@ public class Product {
     return prezzo + prezzo * iva / 100;
   }
   public String getFullName() {
-    return codice + "-" + nome;
+    return getCode() + "-" + nome;
   }
   
 }
